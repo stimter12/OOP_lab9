@@ -87,14 +87,14 @@ public class Train implements Serializable {
     }
 
     public String ShowToString() {
-        return id + " ".repeat(4 - Integer.toString(id).length()) +
-                pointOfDestination + " ".repeat(22 - pointOfDestination.length()) +
-                trainNumber + " ".repeat(14 - Integer.toString((int) trainNumber).length()) +
-                departureTime+" ".repeat(16-departureTime.length()) +
-                numberOfSeats+" ".repeat(17-Integer.toString(numberOfSeats).length())+
-                travelTime+" ".repeat(13-travelTime.length()) +
+        return id + "_".repeat(4 - Integer.toString(id).length()) +
+                pointOfDestination + "_".repeat(22 - pointOfDestination.length()) +
+                trainNumber + "_".repeat(14 - Integer.toString((int) trainNumber).length()) +
+                departureTime+"_".repeat(16-departureTime.length()) +
+                numberOfSeats+"_".repeat(17-Integer.toString(numberOfSeats).length())+
+                travelTime+"_".repeat(13-travelTime.length()) +
                 numberOfIntermediateStops+
-                " ".repeat(29 - Integer.toString(numberOfIntermediateStops).length())+"\n";
+                "_".repeat(29 - Integer.toString(numberOfIntermediateStops).length())+"\n";
     }
 
     public String toStringFile() {

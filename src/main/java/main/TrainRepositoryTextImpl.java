@@ -1,5 +1,6 @@
 package main;
 
+import javafx.scene.control.Alert;
 import main.factory.TrainFactory;
 import main.logic.Train;
 
@@ -12,7 +13,11 @@ public class TrainRepositoryTextImpl implements TrainRepository {
         try(PrintWriter outputStream = new PrintWriter(file)) {
             t.stream().map(Train::toStringFile).forEach(outputStream::println);
         } catch (IOException e) {
-            System.err.println("File not found");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error while trying to open file");
+            alert.showAndWait();
         }
     }
 
@@ -31,7 +36,12 @@ public class TrainRepositoryTextImpl implements TrainRepository {
                             Integer.parseInt(sta[4]), sta[5],
                             Integer.parseInt(sta[6]))).toList();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error while trying to open file");
+            alert.showAndWait();
+            return null;
         }
     }
 

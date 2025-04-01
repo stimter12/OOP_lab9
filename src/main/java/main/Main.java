@@ -1,19 +1,27 @@
 package main;
 
-import main.factory.TrainFactory;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import main.io.View;
-import main.logic.Train;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
-public class Main {
+public class Main extends Application {
     private final View view = new View();
 
     public static void main(String[] args){
-        new Main().run();
+        launch(args);
     }
-    private void run(){
-        List<Train> trains = TrainFactory.createTrains();
-        view.menu(trains);
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("main.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 600);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Trains");
+        primaryStage.show();
     }
 }

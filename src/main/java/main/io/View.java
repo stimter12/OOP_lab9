@@ -2,17 +2,16 @@ package main.io;
 
 import main.TrainRepositoryBinaryImpl;
 import main.TrainRepositoryTextImpl;
+import main.controller.MainController;
+import main.factory.TrainFactory;
 import main.logic.Train;
 import main.servise.TrainServise;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class View {
     private final TrainServise trainService =  new TrainServise();
-    public void menu(List<Train> trains){
-        int option=1;
+    public void menu(){
+        List<Train> trains= TrainFactory.createTrains();
         Scanner read=new Scanner(System.in);
         TrainRepositoryBinaryImpl trainRepositoryBinaryImpl=new TrainRepositoryBinaryImpl();
         TrainRepositoryTextImpl trainRepositoryTextImpl=new TrainRepositoryTextImpl();
@@ -23,32 +22,13 @@ public class View {
         int numberOfSeats;
         String travelTime;
         int numberOfIntermediateStops;
-        while (option != 0) {
-            System.out.println(
-                    """
-                            1. Find trains by point of destination
-                            2. Find trains by departure time
-                            3. Find trains by point of destination and number of seats
-                            4. Sort trains by number of intermediate stops and when matched by train number
-                            5. Find train by id and write intermediate stops
-                            6. For each point of destination sort trains by train number
-                            7. For each point of destination train with less number of intermediate stops
-                            8. Show trains
-                            9. Add train
-                            10.Find trains by
-                            11.Delete train by id
-                            12. Read file text
-                            13. Read file binary
-                            14. Write in file text
-                            15. Write in file binary
-                            0. Exit"""
-            );
-            option=Integer.parseInt(read.nextLine());
-            switch (option) {
+        MainController mainController=new MainController();
+        int option=1;
+        switch (option) {
                 case 1:
                     System.out.println("Enter point of destination:");
                     pointOfDestination=read.nextLine();
-                    List<Train> task1 = trainService.findTrainByPointOfDestination(trains, pointOfDestination);
+                    List<Train> task1 = trainService.findTrainsByPointOfDestination(trains, pointOfDestination);
                     System.out.println(trainService.showTrainsFields());
                     System.out.println(trainService.showTrains(task1));
                     break;
@@ -215,5 +195,4 @@ public class View {
                     break;
             }
         }
-    }
 }
