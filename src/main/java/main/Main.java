@@ -2,7 +2,6 @@ package main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import main.io.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,7 +9,6 @@ import java.io.IOException;
 import java.util.*;
 
 public class Main extends Application {
-    private final View view = new View();
 
     public static void main(String[] args){
         launch(args);

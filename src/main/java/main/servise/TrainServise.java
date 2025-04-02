@@ -45,10 +45,6 @@ public class TrainServise {
                 .thenComparing(Train::getTrainNumber));
         return trains;
     }
-
-    public Train findTrainByTrainNumberAndNumberOfIntermediateStops(List<Train> trains, int id, int numberOfIntermediateStops) {
-        return trains.stream().filter(train -> train.getId() == id).filter(train -> train.getNumberOfIntermediateStops() == numberOfIntermediateStops).findFirst().orElse(null);
-    }
     public Map<String, List<Train>>
     createMapWithKeyPointOfDestinationAndValueListOfTrainsSortedByTrainNumber(List<Train> trains) {
         Map<String, List<Train>> map = new HashMap<>();
@@ -86,7 +82,7 @@ public class TrainServise {
     public List<Train> findTrainsByNumberOfSeats(List<Train> trains, int numberOfSeats){
         return trains.stream().filter(train -> train.getNumberOfSeats() == numberOfSeats).collect(Collectors.toList());
     }
-    public List<Train> findTrainsByTrainsTravelTime(List<Train> trains,String trainsTravelTime){
+    public List<Train> findTrainsByTravelTime(List<Train> trains, String trainsTravelTime){
         return trains.stream().filter(train -> train.getTravelTime().equals(trainsTravelTime)).collect(Collectors.toList());
     }
     public List<Train> findTrainsByNumberOfIntermediateStops
@@ -107,53 +103,25 @@ public class TrainServise {
         return trains.removeIf(train -> train.getId() == id);
     }
     public void setGridTrainFields(GridPane gridPane){
-        Text text0 = new Text();
-        text0.setText("id");
-        gridPane.addColumn(0,text0);
-        Text text1 = new Text();
-        text1.setText("point of destination");
-        gridPane.addColumn(1,text1);
-        Text text2 = new Text();
-        text2.setText("train number");
-        gridPane.addColumn(2,text2);
-        Text text3 = new Text();
-        text3.setText("departure time");
-        gridPane.addColumn(3,text3);
-        Text text4 = new Text();
-        text4.setText("number of seats");
-        gridPane.addColumn(4,text4);
-        Text text5 = new Text();
-        text5.setText("travel time");
-        gridPane.addColumn(5,text5);
-        Text text6 = new Text();
-        text6.setText("number of intermediate stops");
-        gridPane.addColumn(6,text6);
+        gridPane.addColumn(0,new  Text("id"));
+        gridPane.addColumn(1,new  Text("point of destination"));
+        gridPane.addColumn(2,new  Text("train number"));
+        gridPane.addColumn(3,new  Text("departure time"));
+        gridPane.addColumn(4,new  Text("number of seats"));
+        gridPane.addColumn(5,new  Text("travel time"));
+        gridPane.addColumn(6,new  Text("number of intermediate stops"));
     }
 
     public void setGridTrains(GridPane gridPane, List<Train> trains) {
         int i=1;
         for (Train train : trains) {
-            Text text0 = new Text();
-            text0.setText(String.valueOf(train.getId()));
-            gridPane.add(text0,0,i);
-            Text text1 = new Text();
-            text1.setText(train.getPointOfDestination());
-            gridPane.add(text1,1,i);
-            Text text2 = new Text();
-            text2.setText(String.valueOf(train.getTrainNumber()));
-            gridPane.add(text2,2,i);
-            Text text3 = new Text();
-            text3.setText(train.getDepartureTime());
-            gridPane.add(text3,3,i);
-            Text text4 = new Text();
-            text4.setText(String.valueOf(train.getNumberOfSeats()));
-            gridPane.add(text4,4,i);
-            Text text5 = new Text();
-            text5.setText(train.getTravelTime());
-            gridPane.add(text5,5,i);
-            Text text6 = new Text();
-            text6.setText(String.valueOf(train.getNumberOfIntermediateStops()));
-            gridPane.add(text6,6,i);
+            gridPane.add(new Text(" "+train.getId()),0,i);
+            gridPane.add(new Text(" "+train.getPointOfDestination()),1,i);
+            gridPane.add(new Text(" "+train.getTrainNumber()),2,i);
+            gridPane.add(new Text(" "+train.getDepartureTime()),3,i);
+            gridPane.add(new Text(" "+train.getNumberOfSeats()),4,i);
+            gridPane.add(new Text(" "+train.getTravelTime()),5,i);
+            gridPane.add(new Text(" "+train.getNumberOfIntermediateStops()),6,i);
             i++;
         }
 
