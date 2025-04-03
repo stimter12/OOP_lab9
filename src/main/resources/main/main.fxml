@@ -6,7 +6,7 @@
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainController">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="610.0">
-         <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="28.0" layoutY="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
+         <GridPane fx:id="gridPane" layoutX="28.0" layoutY="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
            <columnConstraints>
              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
@@ -53,7 +53,7 @@
             </Menu>
             <MenuItem mnemonicParsing="false" onAction="#deleteTrainById" text="Delete train by id" />
          </Menu>
-         <Menu mnemonicParsing="false" text="Help">
+         <Menu mnemonicParsing="false" onAction="#info" text="Help">
             <MenuItem mnemonicParsing="false" text="About" />
          </Menu>
       </MenuBar>

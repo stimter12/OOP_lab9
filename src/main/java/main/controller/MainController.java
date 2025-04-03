@@ -83,6 +83,7 @@ public class MainController {
 
     public void sortTrainsByNumberOfIntermediateStopsAndWhenMatchedByTrainNumber() {
         List<Train> task4 = trainServise.sortTrainsByNumberOfIntermediateStopsAndTrainNumber(trains);
+        gridPane.getChildren().clear();
         trainServise.setGridTrainFields(gridPane);
         trainServise.setGridTrains(gridPane, task4);
     }
@@ -92,7 +93,9 @@ public class MainController {
                 createMapWithKeyPointOfDestinationAndValueListOfTrainsSortedByTrainNumber(trains);
         gridPane.getChildren().clear();
         trainServise.setGridTrainFields(gridPane);
-        trainsMap.forEach((key, value) -> trainServise.setGridTrains(gridPane, value));
+        List<Train> list = new ArrayList<>();
+        trainsMap.forEach((key, value) -> list.addAll(value));
+        trainServise.setGridTrains(gridPane, list);
     }
 
     public void forEachPointOfDestinationTrainWithLessNumberOfIntermediateStops() {
@@ -267,6 +270,13 @@ public class MainController {
                 alert.showAndWait();
             }
         });
+    }
+    public void info() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Info");
+        alert.setHeaderText("OOP_lab9");
+        alert.setContentText("this program develop for OOP_lab9");
+        alert.showAndWait();
     }
 }
 

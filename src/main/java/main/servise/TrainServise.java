@@ -124,6 +124,7 @@ public class TrainServise {
             gridPane.add(new Text(" "+train.getNumberOfIntermediateStops()),6,i);
             i++;
         }
-
+        gridPane.setGridLinesVisible(false);
+        gridPane.setGridLinesVisible(true);
     }
 }
