@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="610.0">
+         <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="28.0" layoutY="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
+           <columnConstraints>
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="95.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="170.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+         </GridPane>
+      </AnchorPane>
+   </center>
+   <top>
+
+      <MenuBar BorderPane.alignment="CENTER">
+         <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#readFileText" text="Read file text" />
+            <MenuItem mnemonicParsing="false" onAction="#readFileBinary" text="Read file binary" />
+            <MenuItem mnemonicParsing="false" onAction="#writeInFileText" text="Write in file text" />
+            <MenuItem mnemonicParsing="false" onAction="#writeInFileBinary" text="Write in file binary" />
+            <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+         </Menu>
+         <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" onAction="#findTrainsByPointOfDestination" text="Find trains by point of destination" />
+            <MenuItem mnemonicParsing="false" onAction="#findTrainsThatDepartAfterAGivenTime" text="Find trains by departure time" />
+            <MenuItem mnemonicParsing="false" onAction="#findTrainsByPointOfDestinationAndNumberOfSeats" text="Find trains by point of destination and number of seats" />
+            <MenuItem mnemonicParsing="false" onAction="#sortTrainsByNumberOfIntermediateStopsAndWhenMatchedByTrainNumber" text="Sort trains by number of intermediate stops and when matched by train number" />
+            <MenuItem mnemonicParsing="false" onAction="#findTrainsById" text="Find train by id" />
+            <MenuItem mnemonicParsing="false" onAction="#forEachPointOfDestinationSortTrainsByTrainNumber" text="For each point of destination sort trains by train number" />
+            <MenuItem mnemonicParsing="false" onAction="#forEachPointOfDestinationTrainWithLessNumberOfIntermediateStops" text="For each point of destination train with less number of intermediate stops" />
+            <MenuItem mnemonicParsing="false" onAction="#showTrains" text="Show trains" />
+            <MenuItem mnemonicParsing="false" onAction="#addTrain" text="Add train" />
+            <Menu mnemonicParsing="false" text="Find trains by">
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsById" text="id" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByPointOfDestination" text="point of destination" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByTrainNumber" text="train number" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByDepartureTime" text="departure time" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByNumberOfSeats" text="number of seats" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByTravelTime" text="travel time" />
+               <MenuItem mnemonicParsing="false" onAction="#findTrainsByNumberOfIntermediateStops" text="number of intermediate stops" />
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#deleteTrainById" text="Delete train by id" />
+         </Menu>
+         <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About" />
+         </Menu>
+      </MenuBar>
+   </top>
+</BorderPane>
